@@ -1,0 +1,36 @@
+<div class="contenido-superior-formulario">
+    <div class="titulo-publicacion-pagina">
+        <h1>¡AÑADE TU NUEVA PUBLICACIÓN!</h1>
+    </div>
+    <div class="formulario">
+        <div class="informacion-publicacion">
+            <h2>Información publicación</h2>
+            <p [class]="visibilidadError" [innerText]="errorPublicar"></p>
+        </div>
+        <div class="formulario-titulo formulario-campo">
+            <label for="titulo">Título</label>
+            <input type="text" name="titulo" id="titulo" [(ngModel)]="titulo" />
+        </div>
+        <div class="formulario-imagen formulario-campo">
+            <label for="imagen">Imagen URL</label>
+            <input (input)="modificarImagen($event)" type="text" name="imagen"  id="imagen" [(ngModel)]="imagen" />
+            <figure [class]="visibilidadImagen + ' figure-small'">
+                <img [src]="imagen" alt="imagen">
+            </figure>
+        </div>
+        <div class="formulario-cuerpo formulario-campo">
+            <label for="cuerpo">Cuerpo</label>
+            <textarea name=""name="cuerpo" id="cuerpo" [(ngModel)]="cuerpo" cols="30" rows="10"></textarea>
+        </div>
+        <button (click)="publicar()" class="button-publicar">PUBLICAR</button>
+    </div> 
+</div>
+<div >
+    <div class="titulo-apartado-publicacion">
+        <h1>PUBLICACIONES</h1>
+        <h2 class="num-pub">Número de publicaciones: {{contador}}</h2>
+        <p [class]="visibilidadPublicacion">Se ha añadido correctamente la publicación</p>
+    </div>
+    <ul [innerHTML]="contenidoPintar" class="contenido-inferior-publicacion">    
+    </ul>
+</div>
